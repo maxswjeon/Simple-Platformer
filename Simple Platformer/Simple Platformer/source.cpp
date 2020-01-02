@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 	while (!quit)
 	{
 		window_main.Update(duration_cast<milliseconds>(system_clock::now() - last_render));
-		
+		window_main.Render();
 		while (SDL_PollEvent(&e))
 		{
 			event_pool.HandleEvent(e);

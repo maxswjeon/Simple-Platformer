@@ -11,7 +11,8 @@ class MainWindow : public SDL::Window, public Object
 {
 	std::vector<Object> elements_;
 	Map map_;
-	
+
+	void Render(SDL::Renderer) override;
 public:
 	MainWindow(const char* title, Map map,
 		int width, int height,
@@ -19,8 +20,10 @@ public:
 		Uint32 wflags = SDL_WINDOW_HIDDEN, 
 		int index = -1, Uint32 rflags = SDL_RENDERER_SOFTWARE);
 
-	void Update(std::chrono::milliseconds);
-	void setGravity(double g);
-	void Render(SDL::Renderer) override;
+	void SetGravity(double g);
+	void AddObject(Object& o);
+	
+	void Update(std::chrono::milliseconds) override;
+	void Render();
 };
 

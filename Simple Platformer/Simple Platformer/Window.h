@@ -15,10 +15,9 @@ namespace SDL
 	
 	class Window
 	{
+	protected:
 		SDL_Window* window_;
-
-		Renderer renderer_;
-		
+		Renderer renderer_;		
 		Uint32 subsystems_;
 	public:
 		Window(const char* title,
@@ -40,7 +39,7 @@ namespace SDL
 			int rindex,
 			Uint32 rflags,
 			Uint32 required = SDL_INIT_VIDEO);
-		~Window();
+		virtual ~Window();
 
 		void Show();
 		void Hide();
